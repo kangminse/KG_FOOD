@@ -1,27 +1,11 @@
+package MenuService;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-class MenuDTO{
-	private String mName, mType;
-	private int mPrice;
-	public String getmName() {return mName;}
-	public void setmName(String mName) {this.mName = mName;}
-	public String getmType() {return mType;}
-	public void setmType(String mType) {this.mType = mType;}
-	public int getmPrice() {return mPrice;}
-	public void setmPrice(int mPrice) {this.mPrice = mPrice;}
-
-	
-	
-}
-
-
-
-class DB {
+public class MenuService {
 	private int boardId;
 	Connection con;
 	PreparedStatement ps;
@@ -29,7 +13,7 @@ class DB {
 	
 	Scanner input = new Scanner(System.in);
 	
-	public DB(int boardId) {
+	public MenuService(int boardId) {
 		this.boardId = boardId;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -89,13 +73,4 @@ class DB {
 			}
 		}
 	}//item
-}//class DB
-
-public class MainClass {
-	public static void main(String[] args) {
-		DB db = new DB(2);
-		db.item();
-
-	}//Main
-}//MainClass
-
+}
